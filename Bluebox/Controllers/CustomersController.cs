@@ -28,15 +28,13 @@ namespace Bluebox.Controllers
         public ActionResult Index()
         {
 
-            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
+            //var customers = _context.Customers.Include(c => c.MembershipType).ToList();
             //{
             //   new Customer { Id = 1,  Name = "John Smith"},
             //   new Customer { Id = 2, Name = "Mary Williams"}
             //};
 
-           
-
-            return View(customers);
+            return View();
         }
 
 

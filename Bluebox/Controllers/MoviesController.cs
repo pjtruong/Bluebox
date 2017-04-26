@@ -50,7 +50,18 @@ namespace Bluebox.Controllers
         //}
 
 
+        //movies
+        public ActionResult Index()
+        {
+            //var movies = _context.Movies.Include(m => m.Genre).ToList();        
+            if (User.IsInRole(RoleName.CanManageMovies))
+                return View("List");
 
+            return View("ReadOnlyList");
+
+        }
+
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult New()
         {
             var genres = _context.Genres.ToList();
@@ -115,13 +126,7 @@ namespace Bluebox.Controllers
 
         }
 
-        //movies
-        public ActionResult Index()
-        {
-            //var movies = _context.Movies.Include(m => m.Genre).ToList();        
-            return View();
-
-        }
+        
 
         public ActionResult Details(int id)
         {

@@ -8,6 +8,13 @@ namespace Bluebox.Models
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "Driver License")]
+        public string DriverLicense { get; set; }
+
+        [Required]
+        public string Phone { get; set; }
     }
 
     public class ExternalLoginListViewModel
@@ -64,6 +71,13 @@ namespace Bluebox.Models
 
     public class RegisterViewModel
     {
+        [Required]
+        public string Phone { get; set; }
+
+        [Required]
+        [Display(Name = "Driver License")]
+        public string DriverLicense { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

@@ -54,9 +54,9 @@ namespace Bluebox
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "439075396427973",
+               appSecret: "730f4a755a9dc0a8f7ed20f78212c803");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{

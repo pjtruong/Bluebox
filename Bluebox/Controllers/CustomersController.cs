@@ -33,8 +33,11 @@ namespace Bluebox.Controllers
             //   new Customer { Id = 1,  Name = "John Smith"},
             //   new Customer { Id = 2, Name = "Mary Williams"}
             //};
+            if (User.IsInRole(RoleName.CanManageMovies))
+                return View("List");
 
-            return View();
+            return View("ReadOnlyList");
+
         }
 
 

@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Bluebox.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Bluebox.Controllers
 {
@@ -151,10 +152,11 @@ namespace Bluebox.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, DriverLicense = model.DriverLicense, Phone = model.Phone };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
-                {
+                {                 
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
@@ -367,7 +369,7 @@ namespace Bluebox.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, DriverLicense = model.DriverLicense};
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
